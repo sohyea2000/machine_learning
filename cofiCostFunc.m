@@ -1,3 +1,4 @@
+
 function [J, grad] = cofiCostFunc(params, Y, R, num_users, num_movies, ...
                                   num_features, lambda)
 %COFICOSTFUNC Collaborative filtering cost function
@@ -20,7 +21,7 @@ Theta_grad = zeros(size(Theta));
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost function and gradient for collaborative
 %               filtering. Concretely, you should first implement the cost
-%               function (without regularization) and make sure it is
+%               function (without regularization) and then make sure it is
 %               matches our costs. After that, you should implement the 
 %               gradient and use the checkCostFunction routine to check
 %               that the gradient is correct. Finally, you should implement
@@ -46,7 +47,7 @@ Error = (X*Theta') - Y;
   X_grad = (Error.*R)*Theta;   % Nm x n
   Theta_grad = (Error.*R)'*X;  % Nu x n
   
-  %% %%%%% WORKING: With Regularization
+  %%%%% WORKING: With Regularization
   Reg_term_theta = (lambda/2)*sum(sum(Theta.^2));
   Reg_term_x = (lambda/2)*sum(sum(X.^2));
   
